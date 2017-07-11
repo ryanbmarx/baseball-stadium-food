@@ -1,0 +1,53 @@
+// Bootstrap-sass documentation https://github.com/twbs/bootstrap-sass#d-npm--nodejs
+// ::Sass::Script::Value::Number.precision = [8, ::Sass::Script::Value::Number.precision].max
+
+
+
+// Enables for Tribune colors, but is required for everything.
+@import 'base-variables';
+
+// ---- BREAKPOINTS ---------------------------------------------
+
+$tablet-min-width:450px;
+$desktop-min-width:850px;
+
+$tablet-max-width:$tablet-min-width - 1;
+$desktop-max-width:$desktop-min-width - 1;
+
+
+// ---- ADD MORE VARIABLES HERE ---------------------------------------------
+
+
+// Required for everything, too, but can be broken down into smaller explicit imports if desired. 
+@import 'base-mixins';
+
+// ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------
+
+
+// ---- TRIB CLASSES, UNCOMMENT THE ONES YOU WANT ---------------------------------------------
+// @import 'ngux-visibility-toggles';
+// @import 'trib-bulletbox';
+// @import 'trib-buttons';
+// @import 'trib-colors';
+// @import 'trib-images-charts';
+// @import 'trib-legends';
+// @import 'trib-skeleton';
+// @import 'trib-tables';
+// @import 'trib-timeline-basic';
+// @import 'trib-typography';
+// @import 'trib-utilities';
+
+
+// ---- IMPORT PROJECT STYLES FROM PARTIAL FILES HERE ---------------------------------------------
+@import 'food-item';
+
+// ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
+
+
+@media all and (min-width: $tablet-min-width){
+
+}
+
+@media all and (min-width: $desktop-min-width){
+
+}

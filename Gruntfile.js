@@ -85,8 +85,26 @@ module.exports = function(grunt) {
     }
   };
 
+  config.svgstore = {
+    options: {
+      cleanup:false,
+      cleanupdefs:false
+      // prefix : 'icon-', // This will prefix each ID 
+      // svg: { // will add and overide the the default xmlns="http://www.w3.org/2000/svg" attribute to the resulting SVG 
+      //   viewBox : '0 0 100 100',
+      //   xmlns: 'http://www.w3.org/2000/svg'
+      // }
+    },
+    min: {
+      // Target-specific file lists and/or options go here. 
+      src:['img/src/**/*.svg'],
+      dest:'img/sprite.svg'
+    },
+  };
+
   grunt.initConfig(config);
 
+  grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
@@ -95,6 +113,8 @@ module.exports = function(grunt) {
 
   defaultTasks.push('sass');
   defaultTasks.push('browserify');
+  defaultTasks.push('svgstore');
+
 
   grunt.registerTask('default', defaultTasks);
 };

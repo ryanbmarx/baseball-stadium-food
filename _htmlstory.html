@@ -5,15 +5,47 @@
  # this template.
  #
  #}
+Amet,ossimus voluptates, quaerat perspiciatis. Suscipit numquam est architecto laboriosam culpa iure! Corporis id nam, aut consequuntur accusantium nobis, harum. r sit amet,ossimus voluptates, quaerat perspiciatis. Su
+
 {% block content %}
 <div style='height:0;display:none'>
 	{# https://css-tricks.com/svg-use-with-external-reference-take-2/#}
 	{% include 'img/sprite.svg' %}
 </div>
-<section class='intro'></section>
+<section class='header'>
+	<div class='header__background'>
+		<div class='header__logo'>
+			<img src='http://{{ ROOT_URL }}/img/project-logo.png' />
+		</div>
+	</div>
+	<h2 class='header__dek'>{{ dek }}</h2>
+	{{ intro|markdown }}
+</section>
+<section class='filters'>
+	<div class='filters__stadium'>
+		<button class='filter-button filter-button--cubs'>
+			<svg>
+			  <use xlink:href="#cubs"></use>
+			</svg>
+		</button>
+		<button class='filter-button filter-button--sox'>
+			<svg>
+			  <use xlink:href="#soxAdd"></use>
+			</svg>
+		</button>
+	</div>
+	<div class='filters__type'>
+	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nobis vitae praesentium hic soluta! Aliquid ex voluptates est id ipsam voluptas, asperiores, laboriosam error laborum debitis quod animi, nobis tempore.		
+	</div>
+	<div class='filters__quality'>
+			<button>Up</button>
+		<button>Down</button>
+
+	</div>
+</section>
 <section class='food'>
 	{% for f in stadium_food %}
-		{% include 'subtemplates/_food-item.html' with context %}
+		{% include 'subtemplates/_food-item.html' %}
 	{% endfor %}
 </section>
 <section class='credits'>

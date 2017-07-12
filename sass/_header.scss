@@ -1,0 +1,36 @@
+$logo_width: 300px;
+
+.header{
+
+	&__background{
+		height: 500px;
+		background: url(../img/header-background.jpg) center no-repeat;
+		background-size:cover;
+		position: relative;
+		margin-bottom: 70px;
+	}
+
+	&__logo{
+		width:$logo_width;
+		height:0;
+		padding: 0 0 $logo_width 0;
+	    background: white;
+	    border-radius: 50%;
+
+		position: absolute;
+		right: 50px;
+		// margin: 0 0 0 #{ $logo_width / -2};
+		top: 52%;
+
+		img{
+			width: 100%;
+
+		}
+	}
+
+	&__dek{
+		@include label4();
+		margin: 0 0 10px;
+	}
+
+}

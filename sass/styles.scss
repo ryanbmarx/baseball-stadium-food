@@ -5,6 +5,9 @@
 
 // Enables for Tribune colors, but is required for everything.
 @import 'base-variables';
+@import 'font-config';
+
+
 
 // ---- BREAKPOINTS ---------------------------------------------
 
@@ -42,6 +45,7 @@ $desktop-max-width:$desktop-min-width - 1;
 @import 'food-item';
 
 // ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
+
 
 
 @media all and (min-width: $tablet-min-width){

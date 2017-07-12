@@ -5,7 +5,7 @@ $gutter_width: 25px;
 	border-radius: 10px;
     border: 2px solid black;
     overflow: hidden;
-    margin-bottom: 20px;
+    margin-bottom: $gutter_width;
 	background: #eee;
 	
 	&__image{
@@ -42,14 +42,18 @@ $gutter_width: 25px;
 		@include sans-serif();
 		margin: 0;
 	}
-
-
 }
 
 // Wrigley food item styles variant
 .trb_mainContent .food-item--cubs{
 	border-color: $cubs_blue;
 	background: $trib-blue5;
+}
+
+// Style the featured food items
+
+.trb_mainContent .food-item.food-item--top-pick{
+	width: 100%;
 }
 
 @media all and (min-width: $tablet-min-width){

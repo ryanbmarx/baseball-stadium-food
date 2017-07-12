@@ -1,14 +1,33 @@
+{# DETERMINE THE STADIUM #}
 {% set stadium = "sox" %}
 
 {% if f|test_for_wrigley %}
 	{% set stadium = "cubs" %}
 {% endif %}
 
+{# DETERMINE THE THUMB #}
 
-<div class='food-item food-item--{{ stadium }}'>
-	<div class='food-item__image'></div>
+{% if f.THUMB_POSITION|lower == "up" or f.THUMB_POSITION|lower == "down" %}
+	{% set thumb_icon = '<svg class="food-item__thumb"><use xlink:href="#thumbs-' ~ f.THUMB_POSITION|lower ~ '"></use></svg>' %}
+{% else %}
+	{% set thumb_icon = 'XXX' %}
+{% endif %}
+
+{# DETERMINE IF IT IS A TOP PICK #}
+
+{% if f.IS_TOP_PICK and f.IS_TOP_PICK|int == 1 %}
+	{% set top_pick_class = 'food-item--top-pick' %}
+{% else %}
+	{% set top_pick_class = '' %}
+{% endif %}
+
+
+<div class='food-item food-item--{{ stadium }} {{ top_pick_class }}'>
+	<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ f.ID }}.jpg) center no-repeat;background-size:cover;'></div>
 	<div class='food-item__content'>
-		<div class='food-item__icons'></div>
+		<div class='food-item__icons'>
+			{{ thumb_icon|process_text() }}
+		</div>
 		<h4 class="food-item__name">{{ f.FOOD }}</h4>
 		{% if f.STAND %}
 			<p class='food-item__stand'>{{ f.STAND }}</p>

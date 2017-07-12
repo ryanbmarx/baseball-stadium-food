@@ -5,20 +5,97 @@
 
 	margin: 25px 0;
 
+	&__label{
+		@include display_text(35px);
+		margin: 0 0 10px 0;
+
+	}
+
+	&__buttons{
+
+		&--stadium, &--rating{
+			width: 150px;
+		}
+
+		&--food{
+			display: flex;
+			justify-content: space-between;
+			align-content: flex-start;
+			align-items:stretch; 
+			flex-wrap:wrap;
+		}
+	}
 }
 
 
-.filter-button{
+
+.trb_mainContent .filter-button{
 	display:block;
 	background:none;
 	border:none;
 	margin: 0 0 10px 0;
+	padding: 15px 0;
+	opacity: 1;
+	cursor:pointer;
+	width: 100%;
+	
+	border-radius: 5px;
 
-	&--cubs{
-		background: $cubs_blue;
+	&:hover, &:focus{
+		opacity:.4;
 	}
 
+
+	svg{
+		width: 50px;
+		height: 50px;
+	}
+
+	&__label{
+		@include agate();
+		margin: 0 auto;
+	    max-width: 85%; // for text-wrapping purposes
+		color:black;
+	}
+
+	
 	&--cubs{
+		background: $cubs_blue;
+		.filter-button__label{
+			color:white;
+		}
+	}
+
+	&--sox{
 		background: black;
+		.filter-button__label{
+			color:white;
+		}
+
+	}
+}
+
+
+
+
+// Make the food buttons alittle different shape
+.filters__buttons--food{
+	.filters__label{
+		width:100%;
+	}
+	.filter-button{
+		padding:0;
+		width: 90px;
+		svg{
+			width:85px;
+			height:85px;
+
+		}
+	}
+}
+
+.filters__buttons--rating{
+	.filter-button{
+		background: $peach;
 	}
 }

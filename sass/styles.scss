@@ -5,6 +5,8 @@
 
 // Enables for Tribune colors, but is required for everything.
 @import 'base-variables';
+$peach: #FEE4D2;
+
 @import 'font-config';
 
 
@@ -23,6 +25,10 @@ $desktop-max-width:$desktop-min-width - 1;
 
 // Required for everything, too, but can be broken down into smaller explicit imports if desired. 
 @import 'base-mixins';
+
+@mixin display_text($font_size, $line_height:0.9em, $weight:normal ){
+	font: #{$weight} #{$font_size}/#{$line_height} "MicrobrewOne", "Georgia", serif;
+}
 
 // ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------
 

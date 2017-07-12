@@ -6,6 +6,22 @@
  #
  #}
 {% block content %}
+<div style='height:0;display:none'>
+	{# https://css-tricks.com/svg-use-with-external-reference-take-2/#}
+	{% include 'img/sprite.svg' %}
+</div>
+<section class='intro'></section>
+<section class='food'>
+	{% for f in stadium_food %}
+		{% include 'subtemplates/_food-item.html' with context %}
+	{% endfor %}
+</section>
+<section class='credits'>
+	{{ sources|markdown }}
+	{{ icon_credits|markdown }}
+	{{ credits|markdown }}
+</section>
+
 {% endblock content %}
 
 {% block library_scripts %}

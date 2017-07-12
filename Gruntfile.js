@@ -82,6 +82,10 @@ module.exports = function(grunt) {
     js: {
       files: ['js/src/**/*.js'],
       tasks: ['browserify:app']
+    },
+    svgstore: {
+      files: ['img/src/**/*.svg'],
+      tasks: ['svgstore']
     }
   };
 

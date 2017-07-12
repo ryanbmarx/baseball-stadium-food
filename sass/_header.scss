@@ -29,7 +29,7 @@ $logo_width: 300px;
 	}
 
 	&__dek{
-		@include label4();
+		@include display_text(45px);
 		margin: 0 0 10px;
 	}
 

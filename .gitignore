@@ -10,3 +10,4 @@ css
 app.min.js
 js/*.map 
 .DS_Store
+sprite.svg

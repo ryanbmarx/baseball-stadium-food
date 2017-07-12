@@ -30,6 +30,11 @@ $desktop-max-width:$desktop-min-width - 1;
 	font: #{$weight} #{$font_size}/#{$line_height} "MicrobrewOne", "Georgia", serif;
 }
 
+@mixin distribute_across_columns($number_of_columns, $gutter_width:25px){
+	width: #{90% / $number_of_columns}; // fallback
+	width: calc((100% - #{$gutter_width * ($number_of_columns - 1)}) / #{$number_of_columns} )
+}
+
 // ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------
 
 
@@ -57,6 +62,7 @@ $desktop-max-width:$desktop-min-width - 1;
 .trb_mainContent .credits p{
 	@include agate();
 }
+
 
 @media all and (min-width: $tablet-min-width){
 

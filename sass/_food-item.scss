@@ -1,19 +1,30 @@
+$gutter_width: 25px; 
+
 // Default food item styles
 .trb_mainContent .food-item{
 	border-radius: 10px;
     border: 2px solid black;
     overflow: hidden;
     margin-bottom: 20px;
+	background: #eee;
 	
 	&__image{
 		width: 100%;
 		height: 200px;
-		background: yellow;	
 	}
 
 	&__content{
-		background: #eee;
+
 		padding: 15px;
+	}
+	
+	&__icons{
+		margin: 0 0 10px 0;
+	}
+
+	&__thumb{
+		width: 25px;
+		height: 25px;
 	}
 
 	&__name{
@@ -31,13 +42,31 @@
 		@include sans-serif();
 		margin: 0;
 	}
+
+
 }
 
 // Wrigley food item styles variant
 .trb_mainContent .food-item--cubs{
 	border-color: $cubs_blue;
+	background: $trib-blue5;
+}
 
-	.food-item__content{
-		background: $trib-blue5;
+@media all and (min-width: $tablet-min-width){
+	.food-items{
+		display:flex;
+		justify-content: space-between;
+		align-items: stretch;
+		flex-wrap:wrap;
+	}
+
+	.food-item{
+		@include distribute_across_columns(2, $gutter_width);
+	}
+}
+
+@media all and (min-width: $desktop-min-width){
+	.food-item{
+		@include distribute_across_columns(3, $gutter_width);
 	}
 }

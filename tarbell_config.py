@@ -20,6 +20,24 @@ def test_for_wrigley(f):
 def format_price(price):
     return '${:,.2f}'.format(price)
 
+@blueprint.app_template_filter('get_food_types')
+def get_food_types(food, categories):
+    """
+    Takes the food categories and an individual food item. 
+    It returns a string of space-seperated data-* attributes 
+    for the javascript to reference when filtering food items.
+    """
+
+    retval = ""
+    for c in categories:
+        filter_category = c['type']
+        food_item = c['filter'].upper()
+
+        if filter_category == "food" and food[food_item] == 1:
+            retval = retval + " data-" + food_item.lower()
+    
+    # Clear out the whitespaces on the ends
+    return retval.strip()
 
 # Google spreadsheet key
 SPREADSHEET_KEY = "1lHN02OwGCnEknjPJv0jr5gd0mUtZbi4iM3ts2BZyyoc"

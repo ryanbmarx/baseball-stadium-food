@@ -10,8 +10,18 @@
 {% if f.THUMB_POSITION|lower == "up" or f.THUMB_POSITION|lower == "down" %}
 	{% set thumb_icon = '<svg class="food-item__thumb"><use xlink:href="#thumbs-' ~ f.THUMB_POSITION|lower ~ '"></use></svg>' %}
 {% else %}
-	{% set thumb_icon = 'XXX' %}
+	{% set thumb_icon = "" %}
 {% endif %}
+
+{% if f.THUMB_POSITION and f.THUMB_POSITION|lower == "up" %}
+	{% set data_thumb = "data-thumbs-up" %}
+{% else %}
+	{% set data_thumb = "" %}
+{% endif %}
+
+{# Set data attributes for food types #}
+
+{% set food_types = f|get_food_types(filter_categories) %}
 
 {# DETERMINE IF IT IS A TOP PICK #}
 
@@ -22,7 +32,7 @@
 {% endif %}
 
 
-<div class='food-item food-item--{{ stadium }} {{ top_pick_class }}'>
+<div class='food-item food-item--{{ stadium }} {{ top_pick_class }}' {{ data_thumb }} {{ food_types }}>
 	<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ f.ID }}.jpg) center no-repeat;background-size:cover;'></div>
 	<div class='food-item__content'>
 		<div class='food-item__icons'>
@@ -30,7 +40,7 @@
 		</div>
 		<h4 class="food-item__name">{{ f.FOOD }}</h4>
 		{% if f.STAND %}
-			<p class='food-item__stand'>{{ f.STAND }}</p>
+			<p class='food-item__stand'>From {{ f.STAND }}</p>
 		{% endif %}
 		{{ f.FOOD_DESCRIPTION|markdown}}
 		<p class='food-item__cost'>Find it for <strong>{{ f.PRICE|format_price }}</strong> at section(s) <strong>{{ f.SECTION }}</strong></p>

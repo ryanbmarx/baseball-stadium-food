@@ -44,10 +44,10 @@
 			{{ populate_buttons("rating")}}
 	</div>
 </section>
-<section class='food'>
-	{% for f in stadium_food[1:] %}
+<section class='food-items'>
+	{%- for f in stadium_food[1:] -%}
 		{% include 'subtemplates/_food-item.html' %}
-	{% endfor %}
+	{%- endfor -%}
 </section>
 <section class='credits'>
 	{{ sources|markdown }}

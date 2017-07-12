@@ -16,6 +16,11 @@ def test_for_wrigley(f):
         return True
     return False
 
+@blueprint.app_template_filter('format_price')
+def format_price(price):
+    return '${:,.2f}'.format(price)
+
+
 # Google spreadsheet key
 SPREADSHEET_KEY = "1lHN02OwGCnEknjPJv0jr5gd0mUtZbi4iM3ts2BZyyoc"
 

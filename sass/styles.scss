@@ -46,7 +46,9 @@ $desktop-max-width:$desktop-min-width - 1;
 
 // ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
 
-
+.trb_mainContent .credits p{
+	@include agate();
+}
 
 @media all and (min-width: $tablet-min-width){
 

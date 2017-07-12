@@ -3,6 +3,18 @@
 """
 Tarbell project configuration
 """
+from flask import Blueprint, g, render_template
+import ftfy
+import jinja2
+
+blueprint = Blueprint('baseball-stadium-food', __name__)
+
+@blueprint.app_template_filter('test_for_wrigley')
+def test_for_wrigley(f):
+    stadium = f["STADIUM"].upper()
+    if "WRIGLEY" in stadium:
+        return True
+    return False
 
 # Google spreadsheet key
 SPREADSHEET_KEY = "1lHN02OwGCnEknjPJv0jr5gd0mUtZbi4iM3ts2BZyyoc"

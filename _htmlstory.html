@@ -1,11 +1,20 @@
-{#
- # Template for an HTML story published to P2P.
- #
- # If you want to publish multiple HTML stories, copy, or inherit from
- # this template.
- #
- #}
-Amet,ossimus voluptates, quaerat perspiciatis. Suscipit numquam est architecto laboriosam culpa iure! Corporis id nam, aut consequuntur accusantium nobis, harum. r sit amet,ossimus voluptates, quaerat perspiciatis. Su
+{% macro filter_button(id, label) %}
+		<button class='filter-button filter-button--{{ id }}'>
+			<svg>
+			  <use xlink:href="#{{ id }}"></use>
+			</svg>
+			<p class='filter-button__label'>{{ label }}</p>
+		</button>
+{% endmacro %}
+
+{% macro populate_buttons(button_category) %}
+	{% for c in filter_categories if c.type == button_category%}
+		{{ filter_button(c.filter, c.label) }}
+	{% endfor %}
+
+
+{% endmacro %}
+
 
 {% block content %}
 <div style='height:0;display:none'>
@@ -22,25 +31,17 @@ Amet,ossimus voluptates, quaerat perspiciatis. Suscipit numquam est architecto l
 	{{ intro|markdown }}
 </section>
 <section class='filters'>
-	<div class='filters__stadium'>
-		<button class='filter-button filter-button--cubs'>
-			<svg>
-			  <use xlink:href="#cubs"></use>
-			</svg>
-		</button>
-		<button class='filter-button filter-button--sox'>
-			<svg>
-			  <use xlink:href="#soxAdd"></use>
-			</svg>
-		</button>
+	<div class='filters__buttons filters__buttons--stadium'>
+		<h3 class='filters__label'>I am at:</h3>
+		{{ populate_buttons("location")}}
 	</div>
-	<div class='filters__type'>
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit. Voluptatibus nobis vitae praesentium hic soluta! Aliquid ex voluptates est id ipsam voluptas, asperiores, laboriosam error laborum debitis quod animi, nobis tempore.		
+	<div class='filters__buttons filters__buttons--food'>
+		<h3 class='filters__label'>I am hungry for:</h3>
+		{{ populate_buttons("food")}}
 	</div>
-	<div class='filters__quality'>
-			<button>Up</button>
-		<button>Down</button>
-
+	<div class='filters__buttons filters__buttons--rating'>
+			<h3 class='filters__label'>I am <em>this</em> picky</h3>
+			{{ populate_buttons("rating")}}
 	</div>
 </section>
 <section class='food'>

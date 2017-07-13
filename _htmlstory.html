@@ -1,21 +1,3 @@
-{% macro filter_button(id, label) %}
-		<button class='filter-button filter-button--{{ id }}'>
-			<svg>
-			  <use xlink:href="#{{ id }}"></use>
-			</svg>
-			<p class='filter-button__label'>{{ label }}</p>
-		</button>
-{% endmacro %}
-
-{% macro populate_buttons(button_category) %}
-	{% for c in filter_categories if c.type == button_category%}
-		{{ filter_button(c.filter, c.label) }}
-	{% endfor %}
-
-
-{% endmacro %}
-
-
 {% block content %}
 <div style='height:0;display:none'>
 	{# https://css-tricks.com/svg-use-with-external-reference-take-2/#}
@@ -31,18 +13,7 @@
 	{{ intro|markdown }}
 </section>
 <section class='filters'>
-	<div class='filters__buttons filters__buttons--stadium'>
-		<h3 class='filters__label'>I am at:</h3>
-		{{ populate_buttons("location")}}
-	</div>
-	<div class='filters__buttons filters__buttons--food'>
-		<h3 class='filters__label'>I am hungry for:</h3>
-		{{ populate_buttons("food")}}
-	</div>
-	<div class='filters__buttons filters__buttons--rating'>
-			<h3 class='filters__label'>I am <em>this</em> picky</h3>
-			{{ populate_buttons("rating")}}
-	</div>
+	{% include 'subtemplates/_filters.html' %}
 </section>
 <section class='food-items'>
 	{%- for f in stadium_food[1:] -%}
@@ -64,7 +35,7 @@
 
 {% block scripts %}
 {# Uncomment this if you are using custom JavaScript #}
-{# <script src="//{{ ROOT_URL }}/js/app.min.js"></script> #}
+<script src="//{{ ROOT_URL }}/js/app.min.js"></script>
 <script>
 (function(document) {
   var CSS = [

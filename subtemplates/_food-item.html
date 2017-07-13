@@ -31,18 +31,26 @@
 	{% set top_pick_class = '' %}
 {% endif %}
 
+{# DETERMINE IF WE HAVE A PHOTO #}
+{% if f|has_photo %}
+	{% set photo = f.ID ~ ".jpg" %}
+{% else %}
+	{% set photo = "missing-food.png" %}
+{% endif %}
 
 <div class='food-item food-item--{{ stadium }} {{ top_pick_class }}' {{ data_thumb }} {{ food_types }}>
-	<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ f.ID }}.jpg) center no-repeat;background-size:cover;'></div>
-	<div class='food-item__content'>
-		<div class='food-item__icons'>
-			{{ thumb_icon|process_text() }}
+	<div class='food-item__inner'>
+		<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ photo }}) center no-repeat;background-size:cover;'></div>
+		<div class='food-item__content'>
+			<div class='food-item__icons'>
+				{{ thumb_icon|process_text() }}
+			</div>
+			<h4 class="food-item__name">{{ f.FOOD }}</h4>
+			{% if f.STAND %}
+				<p class='food-item__stand'>From {{ f.STAND }}</p>
+			{% endif %}
+			{{ f.FOOD_DESCRIPTION|markdown}}
+			<p class='food-item__cost'>Find it for <strong>{{ f.PRICE|format_price }}</strong> at section(s) <strong>{{ f.SECTION }}</strong></p>
 		</div>
-		<h4 class="food-item__name">{{ f.FOOD }}</h4>
-		{% if f.STAND %}
-			<p class='food-item__stand'>From {{ f.STAND }}</p>
-		{% endif %}
-		{{ f.FOOD_DESCRIPTION|markdown}}
-		<p class='food-item__cost'>Find it for <strong>{{ f.PRICE|format_price }}</strong> at section(s) <strong>{{ f.SECTION }}</strong></p>
 	</div>
 </div>

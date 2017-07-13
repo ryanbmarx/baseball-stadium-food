@@ -7,6 +7,10 @@ from flask import Blueprint, g, render_template
 import ftfy
 import jinja2
 
+# To test for photos
+import os 
+
+
 blueprint = Blueprint('baseball-stadium-food', __name__)
 
 @blueprint.app_template_filter('test_for_wrigley')
@@ -19,6 +23,15 @@ def test_for_wrigley(f):
 @blueprint.app_template_filter('format_price')
 def format_price(price):
     return '${:,.2f}'.format(price)
+
+@blueprint.app_template_filter('has_photo')
+def has_photo(f):
+    """
+    Takes the food item id and checks if there exists a correpsonding photo 
+    with the same filename in the img/items folder. Returns true if so.
+    """
+    potential_image_path = "img/items/" + f["ID"]  + ".jpg"
+    return os.path.isfile(potential_image_path)
 
 @blueprint.app_template_filter('get_food_types')
 def get_food_types(food, categories):

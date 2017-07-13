@@ -1,7 +1,7 @@
 .trb_mainContent .filters{
 	display:grid;
 	grid-template-columns: 1fr;
-	grid-column-gap: 30px;
+	// grid-column-gap: 30px;
 
 	margin: 25px 0;
 
@@ -63,7 +63,7 @@
 	&__label{
 		@include agate();
 		margin: 0 auto;
-	    max-width: 85%; // for text-wrapping purposes
+	    max-width: 90px; // for text-wrapping purposes
 		color:black;
 	}
 
@@ -241,5 +241,34 @@
 }
 
 @media all and (min-width: $desktop-min-width){
-	
+	.trb_mainContent .filters{
+		grid-template-columns: 1fr 3fr 1fr;
+		grid-column-gap: 30px;
+		&__label{
+			// @include display_text(35px);
+			// margin: 0 0 10px 0;
+
+		}
+
+		&__buttons{
+			// Set the buttons/wrappers on the edge to uniform width
+			&--stadium, &--rating{
+				display:block;
+				width: 150px;
+
+				.filter-button{
+					width: 100%;
+				}
+			}
+
+			// Solidify the size of the food buttons and let them just wrap around to fill the remaining space
+			&--food{
+				justify-content: flex-start;
+				.filter-button{
+				    width: 90px;
+				    margin-right: 13px;
+				}
+			}
+		}
+	}
 }

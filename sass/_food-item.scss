@@ -1,16 +1,24 @@
-$gutter_width: 25px; 
+$fake_padding_border_width: 8px;
 
 // Default food item styles
 .trb_mainContent .food-item{
-	border-radius: 10px;
-    border: 2px solid black;
-    overflow: hidden;
-    margin-bottom: $gutter_width;
-	background: #eee;
-	
+	// These styles also serve as the Sox styles. Ergo, Cubs is an exception.
+	@include distribute_across_columns(1, 0px);
+    border: none;
+	margin-bottom: 20px;
+	&__inner{
+		// border: 3px solid black;
+		border-radius: 10px;
+		overflow: hidden;
+		background: #eee;
+	    height: 100%;
+	}
+
 	&__image{
 		width: 100%;
 		height: 200px;
+	    border-bottom: 3px solid black;
+
 	}
 
 	&__content{
@@ -45,9 +53,13 @@ $gutter_width: 25px;
 }
 
 // Wrigley food item styles variant
-.trb_mainContent .food-item--cubs{
-	border-color: $cubs_blue;
-	background: $trib-blue5;
+.trb_mainContent .food-item[data-cubs] {
+	.food-item__inner{
+		background: $trib-blue5;
+	}
+	.food-item__image{
+		border-color: $cubs_blue;
+	}
 }
 
 // Style the featured food items
@@ -61,16 +73,20 @@ $gutter_width: 25px;
 		display:flex;
 		justify-content: space-between;
 		align-items: stretch;
-		flex-wrap:wrap;
+		flex-flow: row wrap;
+		// margin: 0 #{$gutter_width / -2};
 	}
 
-	.food-item{
-		@include distribute_across_columns(2, $gutter_width);
+	.trb_mainContent .food-item{
+		@include distribute_across_columns(2, $fake_padding_border_width);
+		border: $fake_padding_border_width solid white;
+		margin-bottom: 0;
+
 	}
 }
 
 @media all and (min-width: $desktop-min-width){
-	.food-item{
-		@include distribute_across_columns(3, $gutter_width);
+	.trb_mainContent .food-item{
+		@include distribute_across_columns(3, $fake_padding_border_width);
 	}
 }

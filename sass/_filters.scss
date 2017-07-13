@@ -12,11 +12,9 @@
 	}
 
 	&__buttons{
-
 		&--stadium, &--rating{
 			width: 150px;
 		}
-
 		&--food{
 			display: flex;
 			justify-content: space-between;
@@ -35,21 +33,22 @@
 	border:none;
 	margin: 0 0 10px 0;
 	padding: 15px 0;
-	opacity: 1;
 	cursor:pointer;
 	width: 100%;
 	
 	border-radius: 5px;
 
-	&:hover, &:focus{
-		opacity:.4;
-	}
-
-
 	svg{
+		opacity:.2;
 		width: 50px;
 		height: 50px;
 	}
+
+	&:hover, &:focus{
+		svg{ opacity:.4; }
+	}
+
+
 
 	&__label{
 		@include agate();
@@ -75,7 +74,9 @@
 	}
 }
 
-
+.trb_mainContent .filter-button.filter-button--checked{
+		&:hover svg, &:focus svg, svg {opacity: 1;}
+}
 
 
 // Make the food buttons alittle different shape

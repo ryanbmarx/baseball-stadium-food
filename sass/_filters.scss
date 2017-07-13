@@ -1,4 +1,141 @@
-.filters{
+.trb_mainContent .filters{
+	display:grid;
+	grid-template-columns: 1fr;
+	grid-column-gap: 30px;
+
+	margin: 25px 0;
+
+	&__label{
+		@include display_text(35px);
+		margin: 0 0 10px 0;
+		text-align:center;
+		width: 100%;
+
+	}
+
+	&__buttons{
+		display: flex;
+		justify-content: space-between;
+		align-content: flex-start;
+		align-items:stretch; 
+		flex-wrap:wrap;
+		margin-bottom:25px;
+
+
+		&--stadium, &--rating{
+			// width: 150px;
+		}
+		&--food{
+			// display: flex;
+			// justify-content: space-between;
+			// align-content: flex-start;
+			// align-items:stretch; 
+			// flex-wrap:wrap;
+		}
+	}
+}
+
+
+
+.trb_mainContent .filter-button{
+	display:block;
+	background:none;
+	border:none;
+	margin: 0 0 10px 0;
+	padding: 15px 0;
+	cursor:pointer;
+	width: 100%;
+	
+	border-radius: 5px;
+
+	svg{
+		opacity:.2;
+		width: 50px;
+		height: 50px;
+	}
+
+	&:hover, &:focus{
+		svg{ opacity:.4; }
+	}
+
+
+
+	&__label{
+		@include agate();
+		margin: 0 auto;
+	    max-width: 85%; // for text-wrapping purposes
+		color:black;
+	}
+
+	
+	&--cubs{
+		background: $cubs_blue;
+		.filter-button__label{
+			color:white;
+		}
+	}
+
+	&--sox{
+		background: black;
+		.filter-button__label{
+			color:white;
+		}
+
+	}
+}
+
+.trb_mainContent .filter-button.filter-button--checked{
+		&:hover svg, &:focus svg, svg {opacity: 1;}
+}
+
+
+// ADJUST THE BUTTON DISPLAY FOR THE VARIOUS COLUMNS
+.trb_mainContent .filters__buttons{
+
+	&--stadium .filter-button{
+		padding: 10px 0;
+		width: 48%;
+		width: calc(50% - 10px);
+	    display: flex;
+	    align-items: center;
+	    justify-content: center;
+	    svg{
+	    	 margin-left: 14px;
+
+	    }
+	}
+
+	// Make the food buttons alittle different shape
+	&--food{
+		.filters__label{
+			width:100%;
+		}
+		.filter-button{
+			padding:0;
+			width: calc(100% / 5);
+			height: 120px;
+			margin-bottom:10px;
+			svg{
+			    width: 90%;
+			    height: 90%;
+			}
+		}
+	}
+	&--rating{
+		.filter-button{
+			background: $peach;
+		}
+	}
+}
+
+
+
+
+
+
+@media all and (min-width: $tablet-min-width){
+
+/*.filters{
 	display:grid;
 	grid-template-columns: 1fr 3fr 1fr;
 	grid-column-gap: 30px;
@@ -99,4 +236,10 @@
 	.filter-button{
 		background: $peach;
 	}
+}*/
+	
+}
+
+@media all and (min-width: $desktop-min-width){
+	
 }

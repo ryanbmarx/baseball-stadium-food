@@ -1,6 +1,5 @@
 {# DETERMINE THE STADIUM #}
 {% set stadium = "sox" %}
-
 {% if f|test_for_wrigley %}
 	{% set stadium = "cubs" %}
 {% endif %}
@@ -38,7 +37,7 @@
 	{% set photo = "missing-food.png" %}
 {% endif %}
 
-<div class='food-item food-item--{{ stadium }} {{ top_pick_class }}' {{ data_thumb }} {{ food_types }}>
+<div class='food-item {{ top_pick_class }}' data-{{ stadium }} {{ data_thumb }} {{ food_types }}>
 	<div class='food-item__inner'>
 		<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ photo }}) center no-repeat;background-size:cover;'></div>
 		<div class='food-item__content'>

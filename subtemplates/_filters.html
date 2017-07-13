@@ -1,0 +1,34 @@
+{% macro filter_button(id, label, checked_or_not_checked=False) %}
+		
+		{% set checked_class = "" %}
+		{% if checked_or_not_checked %}
+			{% set checked_class = "filter-button--checked" %}	
+		{% endif %}
+
+		<button class='filter-button {{ checked_class }} filter-button--{{ id }}' data-category="{{ id }}">
+			<svg>
+			  <use xlink:href="#{{ id }}"></use>
+			</svg>
+			<p class='filter-button__label'>{{ label }}</p>
+		</button>
+{% endmacro %}
+
+{% macro populate_buttons(button_category) %}
+	{% for c in filter_categories if c.type == button_category%}
+		{{ filter_button(c.filter, c.label, c.checked_at_load == 1) }}
+	{% endfor %}
+{% endmacro %}
+
+
+<div class='filters__buttons filters__buttons--stadium'>
+	<h3 class='filters__label'>I am at:</h3>
+	{{ populate_buttons("location")}}
+</div>
+<div class='filters__buttons filters__buttons--food'>
+	<h3 class='filters__label'>I am hungry for:</h3>
+	{{ populate_buttons("food")}}
+</div>
+<div class='filters__buttons filters__buttons--rating'>
+		<h3 class='filters__label'>I am <em>this</em> picky</h3>
+		{{ populate_buttons("rating")}}
+</div>

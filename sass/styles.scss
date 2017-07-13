@@ -61,6 +61,11 @@ $desktop-max-width:$desktop-min-width - 1;
 
 // ---- WRITE MORE PROJECT STYLES HERE ---------------------------------------------
 
+.graphic-wrapper{
+	max-width:1200px;
+	margin: 0 auto;
+}
+
 .trb_mainContent .credits p{
 	@include agate();
 }

@@ -1,4 +1,6 @@
 $fake_padding_border_width: 8px;
+$top-pick-color: yellow;
+$top_pick_picture_width_tablet: 260px;
 
 // Default food item styles
 .trb_mainContent .food-item{
@@ -10,8 +12,9 @@ $fake_padding_border_width: 8px;
 		// border: 3px solid black;
 		border-radius: 10px;
 		overflow: hidden;
-		background: #eee;
+		background: rgba(black, .1);
 	    height: 100%;
+	    position:relative;
 	}
 
 	&__image{
@@ -50,23 +53,53 @@ $fake_padding_border_width: 8px;
 		@include sans-serif();
 		margin: 0;
 	}
+	
+	&__seal{
+		display:none;
+	}
 }
-
 // Wrigley food item styles variant
 .trb_mainContent .food-item[data-cubs] {
 	.food-item__inner{
-		background: $trib-blue5;
+		background: rgba($trib-blue3, .25);
 	}
 	.food-item__image{
 		border-color: $cubs_blue;
 	}
 }
 
-// Style the featured food items
 
+// Style the featured food items
 .trb_mainContent .food-item.food-item--top-pick{
 	width: 100%;
+	// border-color: $top-pick-color;
+
+	.food-item__seal{
+		display:flex;
+		justify-content: center;
+		align-items:center;
+		flex-wrap:nowrap;
+
+		position: absolute;
+		top: $fake_padding_border_width * 2;
+		left: $fake_padding_border_width * 2;
+		width: 100px;
+		height: 100px;
+
+		background: url(../img/src/top-pick.svg);
+		transform: rotate(-12deg);
+
+		p{
+			@include display_text(30px);
+			margin: 0;
+			padding: 0;
+			text-align: center;
+		}
+	}
+
+
 }
+
 
 @media all and (min-width: $tablet-min-width){
 	.food-items{
@@ -82,6 +115,31 @@ $fake_padding_border_width: 8px;
 		border: $fake_padding_border_width solid white;
 		margin-bottom: 0;
 
+	}
+
+	// Style the featured food items
+	.trb_mainContent .food-item.food-item--top-pick{
+		
+		.food-item__inner{
+			@include clearfix();	
+			display:flex;	
+			// background: black;
+
+		}
+		.food-item__image{
+		    height: 400px;
+		}
+		.food-item__content{
+			width: 100%; 
+			max-width: 300px;
+			background:rgba(white, .80);
+		}
+
+		&[data-cubs] {
+			.food-item__inner{
+				// background: $cubs_blue;
+			}
+		}
 	}
 }
 

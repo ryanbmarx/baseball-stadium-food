@@ -1,8 +1,4 @@
 .trb_mainContent .filters{
-	display:grid;
-	grid-template-columns: 1fr;
-	// grid-column-gap: 30px;
-
 	margin: 25px 0;
 
 	&__label{
@@ -20,22 +16,8 @@
 		align-items:stretch; 
 		flex-wrap:wrap;
 		margin-bottom:25px;
-
-
-		&--stadium, &--rating{
-			// width: 150px;
-		}
-		&--food{
-			// display: flex;
-			// justify-content: space-between;
-			// align-content: flex-start;
-			// align-items:stretch; 
-			// flex-wrap:wrap;
-		}
 	}
 }
-
-
 
 .trb_mainContent .filter-button{
 	display:block;
@@ -44,14 +26,16 @@
 	margin: 0 0 10px 0;
 	padding: 15px 0;
 	cursor:pointer;
-	width: 100%;
-	
 	border-radius: 5px;
+	overflow:hidden;
+
+	width: 100%;
+	min-width: 65px;	
 
 	svg{
 		opacity:.2;
-		width: 50px;
-		height: 50px;
+	    width: 90%;
+	    height: 65px;
 	}
 
 	&:hover, &:focus{
@@ -112,13 +96,8 @@
 		}
 		.filter-button{
 			padding:0;
-			width: calc(100% / 5);
-			height: 120px;
+			width: calc(90% / 5);
 			margin-bottom:10px;
-			svg{
-			    width: 90%;
-			    height: 90%;
-			}
 		}
 	}
 	&--rating{
@@ -135,135 +114,45 @@
 
 @media all and (min-width: $tablet-min-width){
 
-/*.filters{
-	display:grid;
-	grid-template-columns: 1fr 3fr 1fr;
-	grid-column-gap: 30px;
-
-	margin: 25px 0;
-
-	&__label{
-		@include display_text(35px);
-		margin: 0 0 10px 0;
-
-	}
-
-	&__buttons{
-		&--stadium, &--rating{
-			width: 150px;
-		}
-		&--food{
-			display: flex;
-			justify-content: space-between;
-			align-content: flex-start;
-			align-items:stretch; 
-			flex-wrap:wrap;
-		}
-	}
-}
-
-
-
-.trb_mainContent .filter-button{
-	display:block;
-	background:none;
-	border:none;
-	margin: 0 0 10px 0;
-	padding: 15px 0;
-	cursor:pointer;
-	width: 100%;
-	
-	border-radius: 5px;
-
-	svg{
-		opacity:.2;
-		width: 50px;
-		height: 50px;
-	}
-
-	&:hover, &:focus{
-		svg{ opacity:.4; }
-	}
-
-
-
-	&__label{
-		@include agate();
-		margin: 0 auto;
-	    max-width: 85%; // for text-wrapping purposes
-		color:black;
-	}
-
-	
-	&--cubs{
-		background: $cubs_blue;
-		.filter-button__label{
-			color:white;
-		}
-	}
-
-	&--sox{
-		background: black;
-		.filter-button__label{
-			color:white;
-		}
-
-	}
-}
-
-.trb_mainContent .filter-button.filter-button--checked{
-		&:hover svg, &:focus svg, svg {opacity: 1;}
-}
-
-
-// Make the food buttons alittle different shape
-.filters__buttons--food{
-	.filters__label{
-		width:100%;
-	}
-	.filter-button{
-		padding:0;
-		width: 90px;
-		svg{
-			width:85px;
-			height:85px;
-
-		}
-	}
-}
-
-.filters__buttons--rating{
-	.filter-button{
-		background: $peach;
-	}
-}*/
 	
 }
 
 @media all and (min-width: $desktop-min-width){
 	.trb_mainContent .filters{
-		grid-template-columns: 1fr 3fr 1fr;
+		display:grid;
+		grid-template-columns: 1fr;
+		grid-template-columns: 150px 1fr 150px;
 		grid-column-gap: 30px;
-		&__label{
-			// @include display_text(35px);
-			// margin: 0 0 10px 0;
 
-		}
-
+		display:-ms-grid;
+		-ms-grid-columns: 1fr;
+		-ms-grid-columns: 150px 1fr 150px;
+		
 		&__buttons{
 			// Set the buttons/wrappers on the edge to uniform width
 			&--stadium, &--rating{
-				display:block;
-				width: 150px;
-
 				.filter-button{
 					width: 100%;
 				}
 			}
 
+			&--stadium{
+				grid-column:1;
+				-ms-grid-column:1;
+
+			}
+			&--rating{
+				grid-column:3;
+				-ms-grid-column:3;
+
+			}
+
 			// Solidify the size of the food buttons and let them just wrap around to fill the remaining space
 			&--food{
-				justify-content: flex-start;
+				justify-content: center;
+				grid-column:2;
+				-ms-grid-column:2;
+
 				.filter-button{
 				    width: 90px;
 				    margin-right: 13px;

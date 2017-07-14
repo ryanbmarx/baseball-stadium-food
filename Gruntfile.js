@@ -106,18 +106,41 @@ module.exports = function(grunt) {
     },
   };
 
+  config.postcss = {
+    options: {
+      // map: true, // inline sourcemaps
+
+      // or
+      // map: {
+      //     inline: false, // save all sourcemaps as separate files...
+      //     annotation: 'dist/css/maps/' // ...to the specified directory
+      // },
+
+      processors: [
+        // require('pixrem')(), // add fallbacks for rem units
+        require('autoprefixer')(), // add vendor prefixes
+        require('cssnano')() // minify the result
+      ]
+    },
+    dist: {
+      src: 'css/*.css'
+    }
+  }
+
   grunt.initConfig(config);
 
   grunt.loadNpmTasks('grunt-svgstore');
   grunt.loadNpmTasks('grunt-sass');
   grunt.loadNpmTasks('grunt-browserify');
   grunt.loadNpmTasks('grunt-contrib-watch');
+  grunt.loadNpmTasks('grunt-postcss');
 
   var defaultTasks = [];
 
   defaultTasks.push('sass');
   defaultTasks.push('browserify');
   defaultTasks.push('svgstore');
+  defaultTasks.push('postcss');
 
 
   grunt.registerTask('default', defaultTasks);

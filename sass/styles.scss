@@ -69,13 +69,43 @@ $desktop-max-width:$desktop-min-width - 1;
 	}
 
 	.filter-button__label{
+		@include agate();
 		width: 40%;
 		margin: 0 10% 0 0;
+		text-align: center;
 	}
 
 	&:hover, &:focus{
 		svg{ opacity:.4; }
 	}
+}
+
+@mixin filter-button-food(){
+	// undo default styles
+    background:none;
+	border:none;
+	padding:0;
+	margin: 0 0 10px 0;
+	cursor:pointer;
+
+	svg{
+		opacity:.2;
+	    width: 90%;
+	    height: 50px;
+	    margin: 0 0 0 0;
+	}
+
+	.filter-button__label{
+		@include agate();
+		width: 100%;
+		margin: 10px 0 0 0;
+		text-align: center;
+	}
+
+	&:hover, &:focus{
+		svg{ opacity:.4; }
+	}
+
 }
 
 // ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------

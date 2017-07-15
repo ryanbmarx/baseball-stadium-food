@@ -1,3 +1,4 @@
+// The filter button container
 .trb_mainContent .filters{
 	margin: 25px 0;
 	padding: 25px;
@@ -23,30 +24,41 @@
 	}
 }
 
-.trb_mainContent .filter-button{
-	@include filter-button-horiz();
-
-	&__label{
-		@include agate();
-		margin: 0 auto;
-	    max-width: 90px; // for text-wrapping purposes
-		color:black;
-	}
-
+.trb_mainContent{
+	// button styles ... first the wide ones for stadium and rating.	
+	.filters__buttons--stadium, .filters__buttons--rating{
+		.filter-button{
+			@include filter-button-horiz();
 	
-	&--cubs{
-		background: $cubs_blue;
-		.filter-button__label{
-			color:white;
+			&__label{
+				// @include agate();
+				margin: 0 auto;
+			    max-width: 90px; // for text-wrapping purposes
+				color:black;
+			}
+	
+			
+			&[data-category="cubs"]{
+				background: $cubs_blue;
+				.filter-button__label{
+					color:white;
+				}
+			}
+	
+			&[data-category="sox"]{
+				background: black;
+				.filter-button__label{
+					color:white;
+				}
+	
+			}
 		}
 	}
 
-	&--sox{
-		background: black;
-		.filter-button__label{
-			color:white;
-		}
-
+	// button styles ... Now the food categories
+	.filters__buttons--food .filter-button{
+		@include filter-button-food();
+		width: 33%;
 	}
 }
 
@@ -57,31 +69,8 @@
 
 // ADJUST THE BUTTON DISPLAY FOR THE VARIOUS COLUMNS
 .trb_mainContent .filters__buttons{
+	&--stadium .filter-button{ width: 48%; }
 
-	&--stadium .filter-button{
-		// padding: 10px 0;
-		width: 48%;
-		width: calc(50% - 10px);
-	    // display: flex;
-	    // align-items: center;
-	    // justify-content: center;
-	    // svg{
-	    // 	 margin-left: 14px;
-
-	    // }
-	}
-
-	// Make the food buttons alittle different shape
-	&--food{
-		.filters__label{
-			width:100%;
-		}
-		.filter-button{
-			padding:0;
-			width: calc(90% / 5);
-			margin-bottom:10px;
-		}
-	}
 	&--rating{
 		.filter-button{
 			background: $peach;
@@ -95,8 +84,23 @@
 
 
 @media all and (min-width: $tablet-min-width){
-
+	.trb_mainContent .filters__buttons--food .filter-button{
+		svg {
+			height:70px;
+		}
 	
+	}
+}
+
+@media all and (min-width: 600px){
+	.trb_mainContent .filters__buttons--food{
+		.filter-button{
+			width: 25%;
+			svg {
+				height:90px;
+			}
+		}
+	}
 }
 
 @media all and (min-width: $desktop-min-width){
@@ -126,19 +130,14 @@
 			&--rating{
 				grid-column:3;
 				-ms-grid-column:3;
-
 			}
 
-			// Solidify the size of the food buttons and let them just wrap around to fill the remaining space
 			&--food{
 				justify-content: center;
 				grid-column:2;
 				-ms-grid-column:2;
 
-				.filter-button{
-				    width: 90px;
-				    // margin-right: 13px;
-				}
+				.filter-button{ width: 20%; }
 			}
 		}
 	}

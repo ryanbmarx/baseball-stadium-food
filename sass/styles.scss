@@ -34,7 +34,48 @@ $desktop-max-width:$desktop-min-width - 1;
 	width: #{90% / $number_of_columns}; // fallback
 	width: calc((100% - #{$border_width * $number_of_columns * 2}) / #{$number_of_columns});
 	flex: 1 0 auto;
+}
 
+@mixin label(){
+	// This is the mixin to use so that all labels/headers, etc. are styled the same but can use properly semantic class names
+	@include display_text(35px);
+	margin: 0 0 10px 0;
+	width: 100%;
+}
+
+@mixin filter-button-horiz(){
+	// the button display with a sidesaddle label and icon
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+
+	// undo default styles
+    background:none;
+	border:none;
+
+	margin: 0 0 10px 0;
+	padding: 15px 0;
+	cursor:pointer;
+	border-radius: 5px;
+	overflow:hidden;
+	width: 100%;
+	// min-width: 65px;	
+
+	svg{
+		opacity:.2;
+	    width: 40%;
+	    height:50px;
+	    margin: 0 0 0 10%;
+	}
+
+	.filter-button__label{
+		width: 40%;
+		margin: 0 10% 0 0;
+	}
+
+	&:hover, &:focus{
+		svg{ opacity:.4; }
+	}
 }
 
 // ---- MAKE OR IMPORT MORE MIXINS HERE ---------------------------------------------
@@ -65,6 +106,9 @@ $desktop-max-width:$desktop-min-width - 1;
 	max-width:1200px;
 	margin: 0 auto;
 }
+
+
+
 
 .trb_mainContent .credits p{
 	@include agate();

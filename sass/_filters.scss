@@ -1,11 +1,13 @@
 .trb_mainContent .filters{
 	margin: 25px 0;
+	padding: 25px;
+	background: rgba($peach, .3);
+	border-top: 3px solid $peach;
+	border-bottom: 3px solid $peach;
 
 	&__label{
-		@include display_text(35px);
-		margin: 0 0 10px 0;
+		@include label();
 		text-align:center;
-		width: 100%;
 
 	}
 
@@ -16,32 +18,13 @@
 		align-items:stretch; 
 		flex-wrap:wrap;
 		margin-bottom:25px;
+
+		&:last-child {margin:0;}
 	}
 }
 
 .trb_mainContent .filter-button{
-	display:block;
-	background:none;
-	border:none;
-	margin: 0 0 10px 0;
-	padding: 15px 0;
-	cursor:pointer;
-	border-radius: 5px;
-	overflow:hidden;
-	width: 100%;
-	min-width: 65px;	
-
-	svg{
-		opacity:.2;
-	    width: 90%;
-	    height: 65px;
-	}
-
-	&:hover, &:focus{
-		svg{ opacity:.4; }
-	}
-
-
+	@include filter-button-horiz();
 
 	&__label{
 		@include agate();
@@ -76,16 +59,16 @@
 .trb_mainContent .filters__buttons{
 
 	&--stadium .filter-button{
-		padding: 10px 0;
+		// padding: 10px 0;
 		width: 48%;
 		width: calc(50% - 10px);
-	    display: flex;
-	    align-items: center;
-	    justify-content: center;
-	    svg{
-	    	 margin-left: 14px;
+	    // display: flex;
+	    // align-items: center;
+	    // justify-content: center;
+	    // svg{
+	    // 	 margin-left: 14px;
 
-	    }
+	    // }
 	}
 
 	// Make the food buttons alittle different shape

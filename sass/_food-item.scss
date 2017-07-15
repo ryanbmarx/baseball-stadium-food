@@ -2,25 +2,42 @@ $fake_padding_border_width: 8px;
 $top-pick-color: yellow;
 $top_pick_picture_width_tablet: 260px;
 
+
+
+.food-items {
+	&__legend{
+		width: 100%;
+		dl{
+			@include trib-legend();
+		}
+	}
+	&__label{
+		@include label();
+	    text-align: center;
+	}
+}
+
+
+
 // Default food item styles
 .trb_mainContent .food-item{
 	// These styles also serve as the Sox styles. Ergo, Cubs is an exception.
 	@include distribute_across_columns(1, 0px);
-    border: none;
+	border: none;
 	margin-bottom: 20px;
 	&__inner{
 		// border: 3px solid black;
 		border-radius: 10px;
 		overflow: hidden;
 		background: rgba(black, .1);
-	    height: 100%;
-	    position:relative;
+		height: 100%;
+		position:relative;
 	}
 
 	&__image{
 		width: 100%;
 		height: 200px;
-	    border-bottom: 3px solid black;
+		border-bottom: 3px solid black;
 
 	}
 
@@ -31,11 +48,6 @@ $top_pick_picture_width_tablet: 260px;
 	
 	&__icons{
 		margin: 0 0 10px 0;
-	}
-
-	&__thumb{
-		width: 25px;
-		height: 25px;
 	}
 
 	&__name{
@@ -58,6 +70,17 @@ $top_pick_picture_width_tablet: 260px;
 		display:none;
 	}
 }
+
+.trb_mainContent .food-item__icon{
+	width: 25px;
+	height: 25px;
+
+	&--trophy-worst{
+		transform:rotate(-180deg);
+		position:relative
+	}
+}
+
 // Wrigley food item styles variant
 .trb_mainContent .food-item[data-cubs] {
 	.food-item__inner{
@@ -127,7 +150,7 @@ $top_pick_picture_width_tablet: 260px;
 
 		}
 		.food-item__image{
-		    height: 400px;
+			height: 400px;
 		}
 		.food-item__content{
 			width: 100%; 

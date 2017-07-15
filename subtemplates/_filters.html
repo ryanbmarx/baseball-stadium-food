@@ -21,14 +21,14 @@
 
 
 <div class='filters__buttons filters__buttons--stadium'>
-	<h3 class='filters__label'>I am at:</h3>
+	<h3 class='filters__label'>{{ stadium_label }}</h3>
 	{{ populate_buttons("location")}}
 </div>
 <div class='filters__buttons filters__buttons--food'>
-	<h3 class='filters__label'>I am hungry for:</h3>
+	<h3 class='filters__label'>{{ food_category_label }}</h3>
 	{{ populate_buttons("food")}}
 </div>
 <div class='filters__buttons filters__buttons--rating'>
-		<h3 class='filters__label'>I am picky</h3>
+		<h3 class='filters__label'>{{ ratings_label }}</h3>
 		{{ populate_buttons("rating")}}
 </div>

@@ -22,13 +22,24 @@
 
 <div class='filters__buttons filters__buttons--stadium'>
 	<h3 class='filters__label'>{{ stadium_label }}</h3>
+	{% if stadium_sublabel %}
+		<p class='filters__sublabel'>{{ stadium_sublabel }}</p>
+	{% endif %}
 	{{ populate_buttons("location")}}
 </div>
 <div class='filters__buttons filters__buttons--food'>
 	<h3 class='filters__label'>{{ food_category_label }}</h3>
+	{% if food_category_sublabel %}
+		<p class='filters__sublabel'>{{ food_category_sublabel }}</p>
+	{% endif %}
+
 	{{ populate_buttons("food")}}
 </div>
 <div class='filters__buttons filters__buttons--rating'>
 		<h3 class='filters__label'>{{ ratings_label }}</h3>
+	{% if ratings_sublabel %}
+		<p class='filters__sublabel'>{{ ratings_sublabel }}</p>
+	{% endif %}
+
 		{{ populate_buttons("rating")}}
 </div>

@@ -23,6 +23,11 @@ $top_pick_picture_width_tablet: 260px;
 		@include label();
 	    text-align: center;
 	}
+
+	&__sublabel{
+		@include sans-serif();
+		text-align: center;	
+	}
 }
 
 

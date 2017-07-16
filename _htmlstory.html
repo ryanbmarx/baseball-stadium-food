@@ -18,6 +18,9 @@
 <section class='food-items'>
 	<div class='food-items__legend'>
 		<h3 class='food-items__label'>{{ food_label }}</h3>
+		{% if food_sublabel %}
+			<p class='food-items__sublabel'>{{ food_sublabel }}</p>
+		{% endif %}
 		<dl>
 			<dt>
 				<svg class="food-item__icon food-item__icon--thumb"><use href="#thumbs-up"></use></svg>

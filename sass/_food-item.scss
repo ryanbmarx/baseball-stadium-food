@@ -10,11 +10,12 @@ $top_pick_picture_width_tablet: 260px;
 		dl{
 			@include trib-legend();
 			margin: 0 auto;
-			max-width: 120px;
+			max-width: 170px;
 			
 			dd {
-			    margin-left: 30px;
-			    line-height: 1.55em;
+			    margin-left: 41px;
+			    line-height: 1.3em;
+			    padding-top:10px;
 			}
 		}
 	}

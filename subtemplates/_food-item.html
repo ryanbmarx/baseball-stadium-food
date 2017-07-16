@@ -22,19 +22,23 @@
 
 {% set food_types = f|get_food_types(filter_categories) %}
 
+{# DETERMINE IF WE HAVE A PHOTO #}
+{% if f|has_photo %}
+	{% if f.IS_TOP_PICK and f.IS_TOP_PICK|int == 1 %}
+		{% set photo = f.ID ~ "-large.jpg" %}
+	{% else %}
+		{% set photo = f.ID ~ ".jpg" %}
+	{% endif %}
+{% else %}
+	{% set photo = "missing-food.png" %}
+{% endif %}
+
 {# DETERMINE IF IT IS A TOP PICK #}
 
 {% if f.IS_TOP_PICK and f.IS_TOP_PICK|int == 1 %}
 	{% set top_pick_class = 'food-item--top-pick' %}
 {% else %}
 	{% set top_pick_class = '' %}
-{% endif %}
-
-{# DETERMINE IF WE HAVE A PHOTO #}
-{% if f|has_photo %}
-	{% set photo = f.ID ~ ".jpg" %}
-{% else %}
-	{% set photo = "missing-food.png" %}
 {% endif %}
 
 {# DETERMINE IF THIS IS A BEST/WORST OF STADIUM #}

@@ -9,6 +9,13 @@ $top_pick_picture_width_tablet: 260px;
 		width: 100%;
 		dl{
 			@include trib-legend();
+			margin: 0 auto;
+			max-width: 120px;
+			
+			dd {
+			    margin-left: 30px;
+			    line-height: 1.55em;
+			}
 		}
 	}
 	&__label{
@@ -68,11 +75,12 @@ $top_pick_picture_width_tablet: 260px;
 }
 
 .trb_mainContent .food-item__icon{
-	width: 25px;
-	height: 25px;
+	width: 35px;
+	height: 35px;
 
 	&--trophy-worst{
 		transform:rotate(-180deg);
+	    transform-origin: 49.5% 50%;
 		position:relative
 	}
 }

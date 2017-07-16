@@ -90,7 +90,7 @@ $top_pick_picture_width_tablet: 260px;
 
 // Style the featured food items
 .trb_mainContent .food-item.food-item--top-pick{
-	width: 100%;
+	@include distribute_across_columns(1, $fake_padding_border_width);
 
 	.food-item__seal{
 

@@ -7,7 +7,7 @@
 {# DETERMINE THE THUMB #}
 
 {% if f.THUMB_POSITION|lower == "up" or f.THUMB_POSITION|lower == "down" %}
-	{% set thumb_icon = '<svg class="food-item__icon food-item__icon--thumb"><use href="#thumbs-' ~ f.THUMB_POSITION|lower ~ '"></use></svg>' %}
+	{% set thumb_icon = '<svg class="food-item__icon food-item__icon--thumb"><use xlink:href="#thumbs-' ~ f.THUMB_POSITION|lower ~ '"></use></svg>' %}
 {% else %}
 	{% set thumb_icon = "" %}
 {% endif %}
@@ -47,10 +47,10 @@
 
 {% if f.SUPERLATIVE_OF_STADIUM == 0 %}
 	{# YES, THIS IS AMONG THE WORST #}
-	{% set stadium_superlative_icon = '<svg class="food-item__icon food-item__icon--trophy-worst"><use href="#trophy"></use></svg>' %}
+	{% set stadium_superlative_icon = '<svg class="food-item__icon food-item__icon--trophy-worst"><use xlink:href="#trophy"></use></svg>' %}
 {% elif f.SUPERLATIVE_OF_STADIUM == 1 %}
 	{# 1 = best of stadium #}
-	{% set stadium_superlative_icon = '<svg class="food-item__icon food-item__icon--trophy"><use href="#trophy"></use></svg>' %}
+	{% set stadium_superlative_icon = '<svg class="food-item__icon food-item__icon--trophy"><use xlink:href="#trophy"></use></svg>' %}
 {% endif %}
 
 
@@ -61,7 +61,7 @@
 		{% if f.IS_TOP_PICK and f.IS_TOP_PICK|int == 1 %}
 			<div class='food-item__seal'>
 				<div class='food-item__seal-inner'>
-					<svg><use href="#top-pick"></use></svg>
+					<svg><use xlink:href="#top-pick"></use></svg>
 					<p>TOP<br />PICK</p>
 				</div>
 			</div>

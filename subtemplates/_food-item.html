@@ -56,8 +56,10 @@
 		<div class='food-item__image' style='background:url(http://{{ ROOT_URL }}/img/items/{{ photo }}) center no-repeat;background-size:cover;'></div>
 		{% if f.IS_TOP_PICK and f.IS_TOP_PICK|int == 1 %}
 			<div class='food-item__seal'>
-				{# <svg><use href="#top-pick"></use></svg> #}
-				<p>TOP<br />PICK</p>
+				<div class='food-item__seal-inner'>
+					<svg><use href="#top-pick"></use></svg>
+					<p>TOP<br />PICK</p>
+				</div>
 			</div>
 		{% endif %}
 		<div class='food-item__content'>

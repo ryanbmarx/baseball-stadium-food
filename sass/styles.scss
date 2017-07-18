@@ -155,10 +155,10 @@ $desktop-max-width:$desktop-min-width - 1;
 
 }
 
-@media screen {
+@media only screen {
     .header__hiddenhed { display:none; }
 }
 
-@media speech {
+@media only speech {
     .header__hiddenhed { display:block; }
 }

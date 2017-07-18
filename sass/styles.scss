@@ -137,7 +137,9 @@ $desktop-max-width:$desktop-min-width - 1;
 	margin: 0 auto;
 }
 
-
+.header__hiddenhed{
+	display:none;
+}
 
 
 .trb_mainContent .credits p{
@@ -151,4 +153,12 @@ $desktop-max-width:$desktop-min-width - 1;
 
 @media all and (min-width: $desktop-min-width){
 
+}
+
+@media screen {
+    .header__hiddenhed { display:none; }
+}
+
+@media speech {
+    .header__hiddenhed { display:block; }
 }

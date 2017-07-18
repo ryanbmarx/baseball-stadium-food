@@ -137,7 +137,7 @@ $desktop-max-width:$desktop-min-width - 1;
 	margin: 0 auto;
 }
 
-.header__hiddenhed{
+.header--hiddenhed{
 	display:none;
 }
 
@@ -156,9 +156,9 @@ $desktop-max-width:$desktop-min-width - 1;
 }
 
 @media only screen {
-    .header__hiddenhed { display:none; }
+    .header--hiddenhed { display:none; }
 }
 
 @media only speech {
-    .header__hiddenhed { display:block; }
+    .header--hiddenhed { display:block; }
 }
